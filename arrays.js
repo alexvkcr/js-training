@@ -1,37 +1,49 @@
 
 /** 
- * 
+ * returns the first letter changed to UpperCase
 */
-function upperCaseFirst( string ){
-    return string.charAt( 0 ).toUpperCase() + string.slice( 1 );
+function upperCaseFirst(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
-function lowerCaseFirst( string ){
-    return string.charAt( 0 ).toLowerCase() + string.slice( 1 );
+/** 
+ * returns the first letter changed to UpperCase
+*/
+function lowerCaseFirst(string) {
+  return string.charAt(0).toLowerCase() + string.slice(1);
 }
-function camelize( dashSpaced ){
-    const arr = dashSpaced.split( "-" );
-    return lowerCaseFirst( arr.reduce( ( sum, current ) => sum + upperCaseFirst( current ), "" ) );
+/** 
+ * changes a string from dash-case to camelCase
+*/
+function dashToCamelCase(str) {
+  return str
+    .split('-') // splits 'my-long-word' into array ['my', 'long', 'word']
+    .map(
+      // capitalizes first letters of all array items except the first one
+      // converts ['my', 'long', 'word'] into ['my', 'Long', 'Word']
+      (word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1)
+    )
+    .join(''); // joins ['my', 'Long', 'Word'] into 'myLongWord'
 }
+
+/** 
+ * changes a string from camelCase to dash-case
+*/
+function camelToDashCase(str) {
+  let upperCaseArr = Array.from(str).reduce((red,item,index) => 
+    item.toUpperCase() == item ? [...red,index] : red , []);
+
+  upperCaseArr.forEach((element,index) => {
+    str = `${str.slice(0,element+index)}-${str.charAt(element+index).toLowerCase()}${str.slice(element+1+index)}`});
+  return str;
+}
+
+
 /*
-function camelize(str) {
-    return str
-      .split('-') // splits 'my-long-word' into array ['my', 'long', 'word']
-      .map(
-        // capitalizes first letters of all array items except the first one
-        // converts ['my', 'long', 'word'] into ['my', 'Long', 'Word']
-        (word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1)
-      )
-      .join(''); // joins ['my', 'Long', 'Word'] into 'myLongWord'
-  }
-
-console.log( 'Camelize transforma algo-con-guiones en =\n' + camelize( "algo-con-Mayusculas" ) )
-
-
 
 function filterRange( arr, a, b ){
     return arr.filter(item => (a <= item && item <= b))
 }
- 
+
 let arr = [5, 3, 8, 1];
 
 let filtered = filterRange( arr, 1, 4 );
@@ -90,7 +102,7 @@ function Calculator() {
             a = +split[0],
             op = split[1],
             b = +split[2]
-        
+
         if (!methods[op] || isNaN(a) || isNaN(b)) return NaN;
 
         return methods[op](a ,b);
@@ -169,7 +181,7 @@ function shuffle(array) {
       [array[i], array[j]] = [array[j], array[i]];
     }
   }
-  
+
   // counts of appearances for all possible permutations
   let count = {
     '123': 0,
@@ -179,13 +191,13 @@ function shuffle(array) {
     '321': 0,
     '312': 0
   };
-  
+
   for (let i = 0; i < 1000000; i++) {
     let array = [1, 2, 3];
     shuffle(array);
     count[array.join('')]++;
   }
-  
+
   // show counts of all possible permutations
   let str = "";
   for (let key in count) {
@@ -240,22 +252,22 @@ function unique(arr) {
     }
     return res;
 }
-  
+
 function unique(arr) {
     let result = [];
-  
+
     for (let str of arr) {
       if (!result.includes(str)) {
         result.push(str);
       }
     }
-  
+
     return result;
   }
-  
+
   let strings = ["Hare", "Krishna", "Hare", "Krishna",
     "Krishna", "Krishna", "Hare", "Hare", ":-O"
   ];
-  
+
   alert( 'should be Hare, Krishna, :-O:\n'+unique(strings) ); // Hare, Krishna, :-O
 */
