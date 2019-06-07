@@ -1,6 +1,8 @@
 
-/********************************* */
-/*function upperCaseFirst( string ){
+/** 
+ * 
+*/
+function upperCaseFirst( string ){
     return string.charAt( 0 ).toUpperCase() + string.slice( 1 );
 }
 function lowerCaseFirst( string ){
@@ -9,8 +11,8 @@ function lowerCaseFirst( string ){
 function camelize( dashSpaced ){
     const arr = dashSpaced.split( "-" );
     return lowerCaseFirst( arr.reduce( ( sum, current ) => sum + upperCaseFirst( current ), "" ) );
-}*/
-
+}
+/*
 function camelize(str) {
     return str
       .split('-') // splits 'my-long-word' into array ['my', 'long', 'word']
@@ -25,7 +27,6 @@ function camelize(str) {
 console.log( 'Camelize transforma algo-con-guiones en =\n' + camelize( "algo-con-Mayusculas" ) )
 
 
-/*********************************************************************************************/
 
 function filterRange( arr, a, b ){
     return arr.filter(item => (a <= item && item <= b))
@@ -40,7 +41,6 @@ alert( 'this should be 3,1: '+filtered ); // 3,1 (matching values)
 alert( 'this should be 5,3,8,1: '+arr ); // 5,3,8,1 (not modified)
 
 
-/*********************************************************************************************/
 
 function filterRangeInPlace( arr, a, b ){
     let auxArr = [];
@@ -54,7 +54,6 @@ filterRangeInPlace(arr, 1, 4); // removed the numbers except from 1 to 4
 
 alert('should be 1,2,3,4: '+arr ); // [1,2,3,4]
 
-/*********************************************************************************************/
 
 
 arr = [5, 2, 1, -10, 8];
@@ -67,7 +66,6 @@ arr.sort( ( a, b ) => b - a)
 
 alert( 'should be 8, 5, 2, 1, -10' + arr ); // 8, 5, 2, 1, -10
 
-/*********************************************************************************************/
 
 
 arr = ["HTML", "JavaScript", "CSS"];
@@ -80,7 +78,6 @@ alert( 'should be CSS, HTML, JavaScript\n' + sorted ); // CSS, HTML, JavaScript
 alert( 'should be HTML, JavaScript, CSS (no changes)\n' + arr ); // HTML, JavaScript, CSS (no changes)
 
 
-/*********************************************************************************************/
 
 function Calculator() {
     let methods = {
@@ -112,7 +109,6 @@ calc.addMethod( "*", ( a , b) => a * b);
 alert( calc.calculate("5 * 2") ); // 10
 
 
-/*********************************************************************************************/
 
 
 let john = { name: "John", age: 25 };
@@ -126,7 +122,6 @@ let names = users.map( (item, index, array) => array[index] = item.name )
 alert( names ); // John, Pete, Mary
 
 
-/*********************************************************************************************/
 
 
  john = { name: "John", surname: "Smith", id: 1 };
@@ -146,14 +141,11 @@ usersMapped = [
   { fullName: "Pete Hunt", id: 2 },
   { fullName: "Mary Key", id: 3 }
 ]
-*/
 
 alert( usersMapped[0].id ) // 1
 alert( usersMapped[0].fullName ) // John Smith
 
 
-/*********************************************************************************************/
-/*Sort objects */
 
 function sortByName( array ){
     array.sort( ( a, b ) => { return a.name.localeCompare(b.name) })
@@ -170,8 +162,6 @@ sortByName(arr);
 alert('John: ' + arr[0].name); // John
 alert('Pete ' + arr[2].name); // Pete
 
-/********************************************************************************************/
-/**Shuffle */
 
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -204,8 +194,6 @@ function shuffle(array) {
   alert(str);
 
 
-/********************************************************************************************/
-/**Get average age */
 
 function* genAges( a ){
     for (let item of a){
@@ -240,8 +228,6 @@ arr = [ john, pete, mary ];
 alert( ` Averege is ${getAverageAge(arr)}` ); // (25 + 30 + 29) / 3 = 28
 
 
-/*********************************** */
-/**Unique arrays 
 
 function unique(arr) {
     let dict = {}
@@ -253,7 +239,7 @@ function unique(arr) {
         }
     }
     return res;
-}*/
+}
   
 function unique(arr) {
     let result = [];
@@ -272,3 +258,4 @@ function unique(arr) {
   ];
   
   alert( 'should be Hare, Krishna, :-O:\n'+unique(strings) ); // Hare, Krishna, :-O
+*/
