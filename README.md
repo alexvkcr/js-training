@@ -1,5 +1,8 @@
-# js-training
+# JS Training
 
+To download:
+
+  git clone git@github.com:alexvkcr/js-training.git
 
 Here are my files where I train and develop a nice toolset with JS features.
 
