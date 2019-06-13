@@ -37,6 +37,16 @@ function camelToDashCase(str) {
   return str;
 }
 
+function* range(start, end) {
+  for (let i = start; i <= end; i++) {
+      yield i;
+  }
+}
+/* HOW TO CONSUME RANGE
+for (i of range(1, 5)) {
+  console.log(i);
+}
+/*
 
 /*
 
